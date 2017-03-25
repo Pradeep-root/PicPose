@@ -4,12 +4,23 @@
     android:layout_height="wrap_content"
     android:clickable="true">
 
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:gravity="center_vertical"
+        android:foregroundGravity="center_vertical"
+        android:id="@+id/imageViewNavItem"/>
+
     <TextView
         android:id="@+id/textNavTitle"
         android:text="Item"
+        android:layout_toRightOf="@+id/imageViewNavItem"
+        android:gravity="center_vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="30dp"
+        android:paddingLeft="24dp"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         android:textSize="15dp"

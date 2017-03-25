@@ -30,6 +30,12 @@ public class FragmentDrawer extends Fragment {
 
     RecyclerView recyclerView;
     private static String[] titles = {"Trending", "Men", "Women", "Kids", "Couple", "family"};
+    private static int[] images = {R.mipmap.ic_trending_up_grey600_24dp
+            ,R.mipmap.ic_trending_up_grey600_24dp
+            ,R.mipmap.ic_trending_up_grey600_24dp
+            ,R.mipmap.ic_trending_up_grey600_24dp
+            ,R.mipmap.ic_trending_up_grey600_24dp
+            ,R.mipmap.ic_trending_up_grey600_24dp};
     private NavigationDrawerAdapter adapter;
     private View containerView;
     private DrawerLayout mDrawerLayout;
@@ -83,6 +89,7 @@ public class FragmentDrawer extends Fragment {
         for (int i = 0; i < titles.length; i++) {
             NavDrawerItemModel navItem = new NavDrawerItemModel();
             navItem.setTitle(titles[i]);
+            navItem.setImage(images[i]);
             data.add(navItem);
         }
         return data;

@@ -8,6 +8,7 @@ public class NavDrawerItemModel {
 
     private boolean showNotify;
     private String title;
+    private int image;
 
     public NavDrawerItemModel() {
         this.showNotify = false;
@@ -28,5 +29,13 @@ public class NavDrawerItemModel {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public int getImage() {
+        return image;
+    }
+
+    public void setImage(int image) {
+        this.image = image;
     }
 }

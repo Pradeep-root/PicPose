@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -40,6 +41,7 @@ public class NavigationDrawerAdapter extends RecyclerView.Adapter<NavigationDraw
     public void onBindViewHolder(ItemViewHolder holder, int position) {
         NavDrawerItemModel currentItem = navDrawerItemModels.get(position);
         holder.textViewTitle.setText(currentItem.getTitle());
+        holder.imageViewNavItem.setImageResource(currentItem.getImage());
     }
 
     @Override
@@ -49,10 +51,12 @@ public class NavigationDrawerAdapter extends RecyclerView.Adapter<NavigationDraw
 
     public class ItemViewHolder extends RecyclerView.ViewHolder {
         TextView textViewTitle;
+        ImageView imageViewNavItem;
 
         public ItemViewHolder(View itemView) {
             super(itemView);
                textViewTitle = (TextView) itemView.findViewById(R.id.textNavTitle);
+               imageViewNavItem = (ImageView) itemView.findViewById(R.id.imageViewNavItem);
         }
     }
 
