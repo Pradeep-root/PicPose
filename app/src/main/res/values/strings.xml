@@ -2,4 +2,8 @@
     <string name="app_name">PicPose</string>
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
+
+    <string name="fragment_trending">Trending</string>
+    <string name="fragment_men">Men</string>
+    <string name="fragment_women">Women</string>
 </resources>

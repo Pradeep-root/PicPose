@@ -29,7 +29,7 @@ import java.util.List;
 public class FragmentDrawer extends Fragment {
 
     RecyclerView recyclerView;
-    private static String[] titles = {"Trending", "Man", "Women", "Kids", "Couple", "family"};
+    private static String[] titles = {"Trending", "Men", "Women", "Kids", "Couple", "family"};
     private NavigationDrawerAdapter adapter;
     private View containerView;
     private DrawerLayout mDrawerLayout;
@@ -143,7 +143,7 @@ public class FragmentDrawer extends Fragment {
                 public void onLongPress(MotionEvent e) {
                     View child = recyclerView.findChildViewUnder(e.getX(), e.getY());
                     if (child != null && clickListener != null) {
-                        clickListener.onLongClick(child, recyclerView.getChildPosition(child));
+                        clickListener.onLongClick(child, recyclerView.getChildAdapterPosition(child));
                     }
                 }
             });
@@ -151,6 +151,10 @@ public class FragmentDrawer extends Fragment {
 
         @Override
         public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
+            View child = rv.findChildViewUnder(e.getX(), e.getY());
+            if (child != null && clickListener != null && gestureDetector.onTouchEvent(e)) {
+                clickListener.onClick(child, rv.getChildAdapterPosition(child));
+            }
             return false;
         }
 
