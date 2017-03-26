@@ -29,13 +29,13 @@ import java.util.List;
 public class FragmentDrawer extends Fragment {
 
     RecyclerView recyclerView;
-    private static String[] titles = {"Trending", "Men", "Women", "Kids", "Couple", "family"};
+    private static String[] titles = {"Trending", "Men", "Women", "Couple", "Kids", "Family"};
     private static int[] images = {R.mipmap.ic_trending_up_grey600_24dp
-            ,R.mipmap.ic_trending_up_grey600_24dp
-            ,R.mipmap.ic_trending_up_grey600_24dp
-            ,R.mipmap.ic_trending_up_grey600_24dp
-            ,R.mipmap.ic_trending_up_grey600_24dp
-            ,R.mipmap.ic_trending_up_grey600_24dp};
+            ,R.mipmap.ic_human_male_grey600_24dp
+            ,R.mipmap.ic_human_female_grey600_24dp
+            ,R.mipmap.ic_human_male_female_grey600_24dp
+            ,R.mipmap.ic_face_grey600_24dp
+            ,R.mipmap.ic_group_grey600_24dp};
     private NavigationDrawerAdapter adapter;
     private View containerView;
     private DrawerLayout mDrawerLayout;
@@ -70,6 +70,9 @@ public class FragmentDrawer extends Fragment {
             @Override
             public void onClick(View view, int position) {
                 drawerListener.onDrawerItemSelected(view, position);
+                List<NavDrawerItemModel> navDrawerItemModels = getData();
+                navDrawerItemModels.get(position).setSelected(true);
+                adapter.updateList(navDrawerItemModels);
                 mDrawerLayout.closeDrawer(containerView);
             }
 
@@ -82,7 +85,7 @@ public class FragmentDrawer extends Fragment {
         return rootView;
     }
 
-    public static List<NavDrawerItemModel> getData() {
+    public List<NavDrawerItemModel> getData() {
         List<NavDrawerItemModel> data = new ArrayList<>();
 
         // preparing navigation drawer items

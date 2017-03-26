@@ -9,10 +9,21 @@ public class NavDrawerItemModel {
     private boolean showNotify;
     private String title;
     private int image;
+    private boolean isSelected;
 
     public NavDrawerItemModel() {
         this.showNotify = false;
         this.title = "";
+        this.isSelected = false;
+
+    }
+
+    public boolean isSelected() {
+        return isSelected;
+    }
+
+    public void setSelected(boolean selected) {
+        isSelected = selected;
     }
 
     public boolean isShowNotify() {

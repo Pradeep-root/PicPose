@@ -42,6 +42,9 @@ public class NavigationDrawerAdapter extends RecyclerView.Adapter<NavigationDraw
         NavDrawerItemModel currentItem = navDrawerItemModels.get(position);
         holder.textViewTitle.setText(currentItem.getTitle());
         holder.imageViewNavItem.setImageResource(currentItem.getImage());
+        if(currentItem.isSelected()){
+            holder.itemView.setBackgroundResource(R.color.colorAccent);
+        }
     }
 
     @Override
@@ -57,11 +60,17 @@ public class NavigationDrawerAdapter extends RecyclerView.Adapter<NavigationDraw
             super(itemView);
                textViewTitle = (TextView) itemView.findViewById(R.id.textNavTitle);
                imageViewNavItem = (ImageView) itemView.findViewById(R.id.imageViewNavItem);
+
         }
     }
 
     public void deleteItem(int position){
         navDrawerItemModels.remove(position);
+        notifyDataSetChanged();
+    }
+    public void updateList(List<NavDrawerItemModel> navDrawerItemModels){
+        this.navDrawerItemModels.clear();
+        this.navDrawerItemModels.addAll(navDrawerItemModels);
         notifyDataSetChanged();
     }
 }
