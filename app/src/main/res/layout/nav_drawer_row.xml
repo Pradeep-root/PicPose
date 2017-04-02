@@ -10,27 +10,26 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_marginLeft="24dp"
+        android:layout_marginLeft="16dp"
         android:gravity="center_vertical"
         android:src="@mipmap/ic_launcher"
         android:layout_alignParentTop="true"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginBottom="6dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:foregroundGravity="center_vertical"
         android:id="@+id/imageViewNavItem"/>
 
     <TextView
         android:id="@+id/textNavTitle"
         android:text="Item"
-        android:layout_toRightOf="@+id/imageViewNavItem"
         android:gravity="center_vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
-        android:textSize="15dp"
+        android:layout_marginLeft="72dp"
+        android:textSize="14sp"
         android:textStyle="bold"
-        android:layout_marginTop="6dp"
-        android:layout_marginBottom="6dp" />
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp" />
 
 </RelativeLayout>
