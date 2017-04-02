@@ -7,16 +7,29 @@
     <RelativeLayout
         android:id="@+id/navigation_header_container"
         android:layout_width="match_parent"
-        android:layout_height="140dp"
+        android:layout_height="178dp"
         android:layout_alignParentTop="true"
-        android:background="@color/colorPrimary">
+        android:background="@mipmap/nav_header_2bg">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:src="@drawable/ic_profile"
-            android:scaleType="fitCenter"
-            android:layout_centerInParent="true"/>
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="38dp"
+            android:id="@+id/circleView" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textHeaderName"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:text="Moto G"
+            android:textColor="@android:color/white"
+            android:layout_below="@+id/circleView"/>
+
 
     </RelativeLayout>
 
