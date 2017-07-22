@@ -1,4 +1,4 @@
-package com.example.pradeep.picpose.ui.fragments;
+package com.example.pradeep.picpose.ui.fragments.trending;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -12,16 +12,15 @@ import android.view.ViewGroup;
 
 import com.example.pradeep.picpose.R;
 import com.example.pradeep.picpose.adapters.PoseAdapter;
-import com.example.pradeep.picpose.model.PoseModel;
+import com.example.pradeep.picpose.model.Pose;
 
 import java.util.ArrayList;
 
-public class WomenFragment extends BaseFragment {
-
+public class TrendingFragment extends Fragment {
     private PoseAdapter poseAdapter;
     private RecyclerView recyclerView;
 
-    public WomenFragment() {
+    public TrendingFragment() {
         // Required empty public constructor
     }
 
@@ -29,13 +28,15 @@ public class WomenFragment extends BaseFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_women, container, false);
+        return inflater.inflate(R.layout.fragment_trending, container, false);
     }
 
     @Override
@@ -45,26 +46,25 @@ public class WomenFragment extends BaseFragment {
         loadData();
     }
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-
-    }
-
     private void init(View view) {
-        recyclerView = (RecyclerView) view.findViewById(R.id.recyclerViewWoMen);
+        recyclerView = (RecyclerView) view.findViewById(R.id.recyclerViewTrending);
     }
 
     private void loadData() {
-        poseAdapter = new PoseAdapter(new ArrayList<PoseModel>());
+        poseAdapter = new PoseAdapter(new ArrayList<Pose>());
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(poseAdapter);
     }
 
     @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+    }
+
+    @Override
     public void onDetach() {
         super.onDetach();
     }
-
 }

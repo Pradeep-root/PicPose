@@ -4,14 +4,14 @@ package com.example.pradeep.picpose.model;
  * Created by pradeep on 25/3/17.
  */
 
-public class NavDrawerItemModel {
+public class NavDrawerItem {
 
     private boolean showNotify;
     private String title;
     private int image;
     private boolean isSelected;
 
-    public NavDrawerItemModel() {
+    public NavDrawerItem() {
         this.showNotify = false;
         this.title = "";
         this.isSelected = false;

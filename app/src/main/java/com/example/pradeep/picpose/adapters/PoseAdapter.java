@@ -2,14 +2,13 @@ package com.example.pradeep.picpose.adapters;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.pradeep.picpose.R;
-import com.example.pradeep.picpose.model.PoseModel;
+import com.example.pradeep.picpose.model.Pose;
 
 import java.util.ArrayList;
 
@@ -20,10 +19,10 @@ import java.util.ArrayList;
 public class PoseAdapter extends RecyclerView.Adapter<PoseAdapter.ViewHolder> {
 
 
-    private final ArrayList<PoseModel> poseModels;
+    private final ArrayList<Pose> poses;
 
-    public PoseAdapter(ArrayList<PoseModel> poseModels){
-        this.poseModels = poseModels;
+    public PoseAdapter(ArrayList<Pose> poses){
+        this.poses = poses;
     }
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -33,14 +32,14 @@ public class PoseAdapter extends RecyclerView.Adapter<PoseAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        // PoseModel poseModel = poseModels.get(position);
+        // Pose poseModel = poses.get(position);
 
     }
 
     @Override
     public int getItemCount() {
-       // return poseModels.size();
-        return 10;
+       // return poses.size();
+        return poses.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -54,5 +53,11 @@ public class PoseAdapter extends RecyclerView.Adapter<PoseAdapter.ViewHolder> {
             textViewTitle = (TextView) itemView.findViewById(R.id.textPosTitle);
             textViewDetails = (TextView) itemView.findViewById(R.id.textPosDescription);
         }
+    }
+
+    public void updateList(ArrayList<Pose> poses){
+        this.poses.clear();;
+        this.poses.addAll(poses);
+        notifyDataSetChanged();
     }
 }

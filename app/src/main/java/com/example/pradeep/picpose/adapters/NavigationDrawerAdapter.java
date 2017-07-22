@@ -6,11 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.pradeep.picpose.R;
-import com.example.pradeep.picpose.model.NavDrawerItemModel;
+import com.example.pradeep.picpose.model.NavDrawerItem;
 
 import java.util.Collections;
 import java.util.List;
@@ -21,12 +20,12 @@ import java.util.List;
 
 public class NavigationDrawerAdapter extends RecyclerView.Adapter<NavigationDrawerAdapter.ItemViewHolder> {
 
-    List<NavDrawerItemModel> navDrawerItemModels = Collections.emptyList();
+    List<NavDrawerItem> navDrawerItems = Collections.emptyList();
     private LayoutInflater layoutInflater;
     private Context context;
 
-    public NavigationDrawerAdapter(Context context, List<NavDrawerItemModel> navDrawerItemModels){
-        this.navDrawerItemModels = navDrawerItemModels;
+    public NavigationDrawerAdapter(Context context, List<NavDrawerItem> navDrawerItems){
+        this.navDrawerItems = navDrawerItems;
         this.context = context;
         layoutInflater = LayoutInflater.from(context);
     }
@@ -39,7 +38,7 @@ public class NavigationDrawerAdapter extends RecyclerView.Adapter<NavigationDraw
 
     @Override
     public void onBindViewHolder(ItemViewHolder holder, int position) {
-        NavDrawerItemModel currentItem = navDrawerItemModels.get(position);
+        NavDrawerItem currentItem = navDrawerItems.get(position);
         holder.textViewTitle.setText(currentItem.getTitle());
         holder.imageViewNavItem.setImageResource(currentItem.getImage());
         /*if(currentItem.isSelected()){
@@ -49,7 +48,7 @@ public class NavigationDrawerAdapter extends RecyclerView.Adapter<NavigationDraw
 
     @Override
     public int getItemCount() {
-        return navDrawerItemModels.size();
+        return navDrawerItems.size();
     }
 
     public class ItemViewHolder extends RecyclerView.ViewHolder {
@@ -65,12 +64,12 @@ public class NavigationDrawerAdapter extends RecyclerView.Adapter<NavigationDraw
     }
 
     public void deleteItem(int position){
-        navDrawerItemModels.remove(position);
+        navDrawerItems.remove(position);
         notifyDataSetChanged();
     }
-    public void updateList(List<NavDrawerItemModel> navDrawerItemModels){
-        this.navDrawerItemModels.clear();
-        this.navDrawerItemModels.addAll(navDrawerItemModels);
+    public void updateList(List<NavDrawerItem> navDrawerItems){
+        this.navDrawerItems.clear();
+        this.navDrawerItems.addAll(navDrawerItems);
         notifyDataSetChanged();
     }
 }

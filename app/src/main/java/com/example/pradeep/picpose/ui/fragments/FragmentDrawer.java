@@ -17,7 +17,7 @@ import android.view.ViewGroup;
 
 import com.example.pradeep.picpose.R;
 import com.example.pradeep.picpose.adapters.NavigationDrawerAdapter;
-import com.example.pradeep.picpose.model.NavDrawerItemModel;
+import com.example.pradeep.picpose.model.NavDrawerItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,9 +70,9 @@ public class FragmentDrawer extends Fragment {
             @Override
             public void onClick(View view, int position) {
                 drawerListener.onDrawerItemSelected(view, position);
-                List<NavDrawerItemModel> navDrawerItemModels = getData();
-                navDrawerItemModels.get(position).setSelected(true);
-                adapter.updateList(navDrawerItemModels);
+                List<NavDrawerItem> navDrawerItems = getData();
+                navDrawerItems.get(position).setSelected(true);
+                adapter.updateList(navDrawerItems);
                 mDrawerLayout.closeDrawer(containerView);
             }
 
@@ -85,12 +85,12 @@ public class FragmentDrawer extends Fragment {
         return rootView;
     }
 
-    public List<NavDrawerItemModel> getData() {
-        List<NavDrawerItemModel> data = new ArrayList<>();
+    public List<NavDrawerItem> getData() {
+        List<NavDrawerItem> data = new ArrayList<>();
 
         // preparing navigation drawer items
         for (int i = 0; i < titles.length; i++) {
-            NavDrawerItemModel navItem = new NavDrawerItemModel();
+            NavDrawerItem navItem = new NavDrawerItem();
             navItem.setTitle(titles[i]);
             navItem.setImage(images[i]);
             data.add(navItem);

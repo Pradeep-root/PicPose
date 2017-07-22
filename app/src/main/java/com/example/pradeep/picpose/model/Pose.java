@@ -4,13 +4,13 @@ package com.example.pradeep.picpose.model;
  * Created by pradeep on 2/4/17.
  */
 
-public class PoseModel {
+public class Pose {
 
     private String imageUrl;
     private String imageTitle;
     private String imageDescription;
 
-    public PoseModel() {
+    public Pose() {
         this.imageUrl = "";
         this.imageTitle = "";
         this.imageDescription = "";
@@ -42,7 +42,7 @@ public class PoseModel {
 
     @Override
     public String toString() {
-        return "PoseModel{" +
+        return "Pose{" +
                 "imageUrl='" + imageUrl + '\'' +
                 ", imageTitle='" + imageTitle + '\'' +
                 ", imageDescription='" + imageDescription + '\'' +

@@ -1,4 +1,4 @@
-package com.example.pradeep.picpose.ui.activities;
+package com.example.pradeep.picpose.ui.home;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -12,9 +12,9 @@ import android.view.View;
 
 import com.example.pradeep.picpose.R;
 import com.example.pradeep.picpose.ui.fragments.FragmentDrawer;
-import com.example.pradeep.picpose.ui.fragments.MenFragment;
-import com.example.pradeep.picpose.ui.fragments.TrendingFragment;
-import com.example.pradeep.picpose.ui.fragments.WomenFragment;
+import com.example.pradeep.picpose.ui.fragments.men.MenFragment;
+import com.example.pradeep.picpose.ui.fragments.trending.TrendingFragment;
+import com.example.pradeep.picpose.ui.fragments.women.WomenFragment;
 
 public class HomeActivity extends AppCompatActivity implements FragmentDrawer.FragmentDrawerListener {
 
