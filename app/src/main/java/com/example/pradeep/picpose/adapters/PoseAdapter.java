@@ -1,5 +1,6 @@
 package com.example.pradeep.picpose.adapters;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.pradeep.picpose.R;
 import com.example.pradeep.picpose.model.Pose;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -20,6 +22,7 @@ public class PoseAdapter extends RecyclerView.Adapter<PoseAdapter.ViewHolder> {
 
 
     private final ArrayList<Pose> poses;
+    private Context context;
 
     public PoseAdapter(ArrayList<Pose> poses){
         this.poses = poses;
@@ -27,12 +30,14 @@ public class PoseAdapter extends RecyclerView.Adapter<PoseAdapter.ViewHolder> {
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View rootView = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_card_item, parent, false);
+        this.context = parent.getContext();
         return new ViewHolder(rootView);
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         // Pose poseModel = poses.get(position);
+        Picasso.with(context).load(poses.get(position).getImageUrl()).resize(200, 200).centerCrop().into(holder.imageViewPose);
 
     }
 

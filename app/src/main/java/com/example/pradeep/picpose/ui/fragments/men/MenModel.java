@@ -25,7 +25,9 @@ public class MenModel {
             public void run() {
                 ArrayList<Pose> poses = new ArrayList<Pose>();
                 for (int i = 0; i < 20 ; i++) {
-                    poses.add(new Pose());
+                    Pose pose = new Pose();
+                    pose.setImageUrl("https://s-media-cache-ak0.pinimg.com/originals/30/96/64/3096648ef76256192047d0b9bd2cc71f.jpg");
+                    poses.add(pose);
                 }
                 modelInterface.webCallSuccess(poses);
             }
