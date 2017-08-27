@@ -15,22 +15,66 @@ import com.example.pradeep.picpose.ui.fragments.FragmentDrawer;
 import com.example.pradeep.picpose.ui.fragments.men.MenFragment;
 import com.example.pradeep.picpose.ui.fragments.trending.TrendingFragment;
 import com.example.pradeep.picpose.ui.fragments.women.WomenFragment;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 public class HomeActivity extends AppCompatActivity implements FragmentDrawer.FragmentDrawerListener {
 
-    Toolbar mToolbar;
-    ActionBar actionBar;
+    private Toolbar mToolbar;
+    private ActionBar actionBar;
     private FragmentDrawer drawerFragment;
+    private AdView adViewBanner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         setToolbar();
+        displayDefaultScreen();
+        displayFragment(0);
+        initAdViewBanner();
+    }
+
+    public void initAdViewBanner(){
+        adViewBanner = (AdView) findViewById(R.id.adViewBanner);
+        MobileAds.initialize(getApplicationContext(), getResources().getString(R.string.banner_home_footer));
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice("581351123D5FF66504BA8CECE6AE1743")
+                .build();
+        adViewBanner.loadAd(adRequest);
+    }
+
+
+    @Override
+    protected void onPause() {
+        if(adViewBanner != null){
+            adViewBanner.pause();
+        }
+        super.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(adViewBanner != null){
+            adViewBanner.resume();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        if(adViewBanner != null){
+            adViewBanner.destroy();
+        }
+        super.onDestroy();
+    }
+
+
+    public void displayDefaultScreen(){
         drawerFragment = (FragmentDrawer) getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
         drawerFragment.setUp(R.id.fragment_navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), mToolbar);
         drawerFragment.setDrawerListener(this);
-        displayFragment(0);
     }
 
     public void setToolbar(){

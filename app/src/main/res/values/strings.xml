@@ -6,4 +6,8 @@
     <string name="fragment_trending">Trending</string>
     <string name="fragment_men">Men</string>
     <string name="fragment_women">Women</string>
+
+    <string name="banner_home_footer">ca-app-pub-2137636468566143/6499681907</string>
+    <string name="adMobs_app_id">ca-app-pub-2137636468566143~1275275380</string>
+    <string name="interstitial_image_info"></string>
 </resources>
