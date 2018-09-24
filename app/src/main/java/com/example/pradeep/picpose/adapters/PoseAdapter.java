@@ -24,9 +24,10 @@ public class PoseAdapter extends RecyclerView.Adapter<PoseAdapter.ViewHolder> {
     private final ArrayList<Pose> poses;
     private Context context;
 
-    public PoseAdapter(ArrayList<Pose> poses){
+    public PoseAdapter(ArrayList<Pose> poses) {
         this.poses = poses;
     }
+
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View rootView = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_card_item, parent, false);
@@ -43,7 +44,7 @@ public class PoseAdapter extends RecyclerView.Adapter<PoseAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-       // return poses.size();
+        // return poses.size();
         return poses.size();
     }
 
@@ -60,8 +61,8 @@ public class PoseAdapter extends RecyclerView.Adapter<PoseAdapter.ViewHolder> {
         }
     }
 
-    public void updateList(ArrayList<Pose> poses){
-        this.poses.clear();;
+    public void updateList(ArrayList<Pose> poses) {
+        this.poses.clear();
         this.poses.addAll(poses);
         notifyDataSetChanged();
     }
